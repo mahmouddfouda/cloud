@@ -15,7 +15,7 @@
   
 - **SNS Topic**: `OrderTopic`
 - **SQS Queue**: `OrderQueue` (with DLQ)
-- **Lambda Function**: `OrderProcessor` (Python 3.12)
+- **Lambda Function**: `OrderProcessor` (Python)
 
 ---
 
