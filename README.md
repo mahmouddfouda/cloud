@@ -20,7 +20,7 @@
   ## How It Works
 
 1. An order message is published to **SNS Topic** (OrderTopic).
-2. SNS forwards the message to **SQS Queue** (`OrderQueue`).
+2. SNS forwards the message to **SQS Queue** (OrderQueue).
 3. **AWS Lambda** consumes the message from SQS, parses it, and stores it in **DynamoDB**.
 4. If the Lambda fails 3 times, the message is routed to a **Dead-Letter Queue (DLQ)** for review.
 
