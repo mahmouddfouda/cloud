@@ -66,7 +66,7 @@
   "status": "new",
   "timestamp": "2025-05-03T12:00:00Z"
 }
-
+```json
 ---
 
 In our AWS event-driven system, two important features ensure reliable processing: **visibility timeout** and **dead-letter queue (DLQ)**.
