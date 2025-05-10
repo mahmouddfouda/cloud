@@ -26,7 +26,7 @@
 
 ---
 
-## 📥 Setup Instructions
+##  Setup Instructions
 
 1. **Create DynamoDB Table**
    - Name: `Orders`
@@ -66,3 +66,15 @@
   "status": "new",
   "timestamp": "2025-05-03T12:00:00Z"
 }
+
+---
+
+In our AWS event-driven system, two important features ensure reliable processing: **visibility timeout** and **dead-letter queue (DLQ)**.
+
+**Visibility Timeout** ensures that once a Lambda function receives a message from SQS, the message becomes temporarily invisible to other consumers. This prevents the same message from being processed multiple times in parallel. For example, if Lambda starts processing an order but takes 5 seconds, other functions won’t see that message for the duration of the timeout.
+
+**Dead-Letter Queue (DLQ)** handles failures. In our case, we configured the DLQ so if the Lambda function fails to process a message **3 times**, it is redirected to the DLQ instead of being retried indefinitely. This ensures we don’t lose problematic messages and can inspect them later.
+
+**Real-life scenario**: In one test, my Lambda had an error while writing to DynamoDB. The same order message was retried 3 times, and after failing each time, it was automatically sent to the DLQ. I was then able to review the failed payload in the DLQ and identify the cause. This made debugging and recovery much easier.
+
+---
