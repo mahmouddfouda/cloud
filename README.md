@@ -1,7 +1,8 @@
 # cloud
 
 
-*Also see the included `architecture.png` for the visual version.*
+![image](https://github.com/user-attachments/assets/d65b8820-4fe5-4da5-b3b1-5e5baf04677d)
+
 
 ---
 
